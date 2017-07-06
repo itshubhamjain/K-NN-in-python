@@ -8,21 +8,21 @@ def calculateDistance(x1, y1, x, y):
     return distance
 
 
-def grpPlot(points, grp, k):
+def grpPlot(points, group, k):
     near = [] #storing values of co-ordinates thier distance and thier group
-    near1 = []#storing values of co-ordinates
+    near_1 = []#storing values of co-ordinates
     (x1, y1) = points[0]
     for x, y in points[1:]:
         dist = calculateDistance(x1, y1, x, y)
-        near.append((x,y,dist,grp))
+        near.append((x,y,dist,group))
     near.sort(key=operator.itemgetter(2))
     for x,y,w,z in near:
-        near1.append((x,y))
-    near1.append((x1,y1))
+        near_1.append((x,y))
+    near_1.append((x1,y1))
     near = near[0:k]
     plt.scatter(*zip(*near1))#plotting the points of groups
-    near.append((x1, y1,0,grp))
-    print(near1)
+    near.append((x1, y1,0,group))
+    print(near_1)
     print(near)
     return near
 
